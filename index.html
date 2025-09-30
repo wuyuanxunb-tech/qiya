@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quark - 资源分享</title>
+    <title>Quark - 链接转化工具</title>
     <style>
         * {
             margin: 0;
@@ -28,7 +28,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             padding: 40px 30px;
-            max-width: 900px;
+            max-width: 500px;
             width: 100%;
             text-align: center;
             position: relative;
@@ -57,73 +57,13 @@
             letter-spacing: 1px;
         }
         
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .nav-item {
-            background: #f0f7ff;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #1a2a6c;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .nav-item:hover {
-            background: #1a2a6c;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 30px 0;
-            gap: 40px;
-        }
-        
-        .image-section {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .placeholder-image {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 0 auto;
-        }
-        
-        .qrcode-section {
-            flex: 1;
-            text-align: center;
-        }
-        
         .qrcode-container {
             background: white;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: inline-block;
-            margin: 0 auto;
+            margin: 20px auto;
         }
         
         #qrcode {
@@ -173,27 +113,17 @@
         }
         
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .placeholder-image {
-                max-width: 250px;
-                height: 250px;
+            .container {
+                padding: 30px 20px;
             }
             
             h1 {
                 font-size: 2.2rem;
             }
             
-            .nav-menu {
-                gap: 10px;
-            }
-            
-            .nav-item {
-                padding: 6px 12px;
-                font-size: 0.85rem;
+            #qrcode {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
@@ -202,32 +132,12 @@
     <div class="container">
         <header>
             <h1>Quark</h1>
-            <div class="nav-menu">
-                <div class="nav-item">网盘</div>
-                <div class="nav-item">扫描王</div>
-                <div class="nav-item">学习</div>
-                <div class="nav-item">日报</div>
-                <div class="nav-item">文档</div>
-                <div class="nav-item">热搜</div>
-                <div class="nav-item">更多</div>
-                <div class="nav-item">AI工具</div>
-            </div>
         </header>
         
-        <div class="content">
-            <div class="image-section">
-                <div class="placeholder-image">
-                    资源图片展示
-                </div>
-            </div>
-            
-            <div class="qrcode-section">
-                <div class="qrcode-container">
-                    <div id="qrcode"></div>
-                </div>
-                <p class="instruction">用夸克或者浏览器扫码获取资源</p>
-            </div>
+        <div class="qrcode-container">
+            <div id="qrcode"></div>
         </div>
+        <p class="instruction">用夸克或者浏览器扫码获取资源</p>
         
         <div class="notice">
             此页面仅支持移动端，请通过手机扫码访问！
@@ -249,17 +159,6 @@
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
-        });
-        
-        // 导航菜单点击效果
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(nav => nav.style.backgroundColor = '#f0f7ff');
-                navItems.forEach(nav => nav.style.color = '#1a2a6c');
-                this.style.backgroundColor = '#1a2a6c';
-                this.style.color = 'white';
-            });
         });
     </script>
 </body>
