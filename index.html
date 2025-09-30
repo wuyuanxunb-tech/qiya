@@ -1,33 +1,39 @@
-<!doctype html>
-<html lang="zh">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>请用手机打开</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body{font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f7f7fb;}
-    .card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);text-align:center;max-width:720px;width:90%;}
-    .qr{margin-top:18px;}
-    .note{margin-top:14px;font-size:18px;color:#333;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奇犽科技分享 - 链接转化工具</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        .qr-container {
+            margin: 20px auto;
+        }
+        .notice {
+            color: #333;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #888;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <h2>此页面仅支持移动端</h2>
-    <p>请用手机扫码访问 👇</p>
-    <div class="qr">
-      <!-- 这里的二维码是跳转到 mobile.html -->
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://你的域名/mobile.html" alt="扫码访问">
-    </div>
-    <div class="note">或者直接在手机浏览器打开本页面</div>
-  </div>
+    <h1>欢迎使用奇犽科技分享链接转化工具</h1>
+    <p class="notice">请使用手机端打开此页面以获取最佳体验。</p>
 
-  <script>
-    // 前端检测是否是手机，如果是就自动跳转
-    var ua = navigator.userAgent.toLowerCase();
-    if (/iphone|ipad|ipod|android|mobile|quark/.test(ua)) {
-      window.location.href = "mobile.html";
-    }
-  </script>
+    <div class="qr-container">
+        <img src="https://pan.quark.cn/s/1a580f6bc763" alt="扫描二维码使用工具" width="200">
+    </div>
+
+    <p class="footer">此链接转化工具由奇犽科技分享开发 详情可在b站搜索奇犽科技分享</p>
 </body>
 </html>
