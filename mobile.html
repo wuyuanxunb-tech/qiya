@@ -20,6 +20,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         
         .container {
@@ -28,7 +29,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             padding: 30px 20px;
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -55,117 +56,37 @@
             font-weight: 700;
         }
         
-        .subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .nav-menu {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 20px;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .nav-item {
-            background: #f0f7ff;
-            padding: 8px 12px;
+        .qrcode-container {
+            background: white;
+            padding: 20px;
             border-radius: 15px;
-            font-size: 0.85rem;
-            color: #1a2a6c;
-            flex: 1;
-            min-width: 70px;
-            text-align: center;
-        }
-        
-        .nav-item.active {
-            background: #1a2a6c;
-            color: white;
-        }
-        
-        .resource-section {
-            margin: 25px 0;
-        }
-        
-        .resource-image {
-            width: 100%;
-            max-width: 300px;
-            height: 180px;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin: 0 auto 20px;
+            display: inline-block;
+            margin: 20px auto;
         }
         
-        .resource-info {
-            text-align: left;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        #qrcode {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
         }
         
-        .resource-info h3 {
-            color: #1a2a6c;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .resource-info p {
-            line-height: 1.5;
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
-            color: white;
-            border: none;
-            border-radius: 12px;
+        .instruction {
+            margin-top: 15px;
             font-size: 1.1rem;
-            font-weight: 600;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 42, 108, 0.4);
-        }
-        
-        .download-btn:active {
-            transform: translateY(1px);
+            color: #1a2a6c;
+            font-weight: 500;
         }
         
         .notice {
-            background-color: #f0f7ff;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a2a6c;
             padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: left;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #1a2a6c;
-        }
-        
-        .notice h3 {
-            margin-bottom: 8px;
+            margin: 25px 0;
+            text-align: center;
+            border-radius: 0 8px 8px 0;
             font-size: 1rem;
+            line-height: 1.6;
         }
         
         .footer {
@@ -185,48 +106,30 @@
             text-decoration: underline;
         }
         
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            margin: 25px 0;
-            position: relative;
-        }
-        
-        .steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: #ddd;
-            z-index: 1;
-        }
-        
-        .step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 2;
-        }
-        
-        .step-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #1a2a6c;
+        .direct-link {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-bottom: 8px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
         
-        .step-text {
-            font-size: 0.8rem;
-            text-align: center;
-            color: #555;
+        .direct-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 42, 108, 0.4);
+        }
+        
+        .direct-link:active {
+            transform: translateY(1px);
         }
         
         @media (max-width: 380px) {
@@ -238,13 +141,9 @@
                 font-size: 1.8rem;
             }
             
-            .nav-item {
-                font-size: 0.8rem;
-                padding: 6px 8px;
-            }
-            
-            .resource-image {
-                height: 150px;
+            #qrcode {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
@@ -253,67 +152,37 @@
     <div class="container">
         <header>
             <h1>Quark</h1>
-            <p class="subtitle">移动端资源获取</p>
-            
-            <div class="nav-menu">
-                <div class="nav-item active">网盘</div>
-                <div class="nav-item">扫描王</div>
-                <div class="nav-item">学习</div>
-                <div class="nav-item">日报</div>
-                <div class="nav-item">文档</div>
-                <div class="nav-item">热搜</div>
-            </div>
         </header>
         
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-text">选择资源</div>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-text">点击下载</div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-text">获取资源</div>
-            </div>
+        <div class="qrcode-container">
+            <div id="qrcode"></div>
         </div>
+        <p class="instruction">用夸克或者浏览器扫码获取资源</p>
         
-        <div class="resource-section">
-            <div class="resource-image">
-                资源预览
-            </div>
-            
-            <div class="resource-info">
-                <h3>精选资源包</h3>
-                <p>包含各类实用工具、学习资料和模板文件，定期更新，满足您的多种需求。</p>
-            </div>
-            
-            <button class="download-btn" onclick="window.open('https://pan.quark.cn/s/1a580f6bc763', '_blank')">
-                立即获取资源
-            </button>
-        </div>
+        <a href="https://pan.quark.cn/s/1a580f6bc763" class="direct-link" target="_blank">
+            直接访问资源
+        </a>
         
         <div class="notice">
-            <h3>温馨提示</h3>
-            <p>此资源需要通过夸克网盘下载，点击上方按钮将跳转到资源页面，您可以在夸克应用中直接查看或下载。</p>
+            此页面仅支持移动端，请通过手机扫码访问！
         </div>
         
         <div class="footer">
-            <p>此链接转化工具由 <a href="https://space.bilibili.com/396153652?spm_id_from=333.1387.follow.user_card.click" target="_blank">奇犽科技分享</a> 开发</p>
+            <p>此链接转化工具由 <a href="https://space.bilibili.com/396153652?spm_id_from=333.1387.b_62696c695f6564754368616e6e656c.9" target="_blank">奇犽科技分享</a> 开发</p>
             <p>详情可在b站搜索奇犽科技分享</p>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        // 导航菜单点击效果
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navItems.forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
-            });
+        // 生成二维码
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://pan.quark.cn/s/1a580f6bc763",
+            width: 200,
+            height: 200,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
         });
         
         // 检测是否为移动设备，如果不是则提示
