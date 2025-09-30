@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>请用手机打开</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f7f7fb;}
+    .card{background:#fff;padding:28px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);text-align:center;max-width:720px;width:90%;}
+    .qr{margin-top:18px;}
+    .note{margin-top:14px;font-size:18px;color:#333;}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>此页面仅支持移动端</h2>
+    <p>请用手机扫码访问 👇</p>
+    <div class="qr">
+      <!-- 这里的二维码是跳转到 mobile.html -->
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://你的域名/mobile.html" alt="扫码访问">
+    </div>
+    <div class="note">或者直接在手机浏览器打开本页面</div>
+  </div>
+
+  <script>
+    // 前端检测是否是手机，如果是就自动跳转
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod|android|mobile|quark/.test(ua)) {
+      window.location.href = "mobile.html";
+    }
+  </script>
+</body>
+</html>
