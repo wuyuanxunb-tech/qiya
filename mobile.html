@@ -2,43 +2,343 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>奇犽科技分享 - 手机端链接转化工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quark - 资源获取</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 30px;
-            background-color: #f9f9f9;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        #qrcode {
-            margin: 20px auto;
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .notice {
-            color: #333;
-            font-size: 18px;
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d);
+        }
+        
+        header {
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #1a2a6c;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-top: 20px;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
+        
+        .nav-item {
+            background: #f0f7ff;
+            padding: 8px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #1a2a6c;
+            flex: 1;
+            min-width: 70px;
+            text-align: center;
+        }
+        
+        .nav-item.active {
+            background: #1a2a6c;
+            color: white;
+        }
+        
+        .resource-section {
+            margin: 25px 0;
+        }
+        
+        .resource-image {
+            width: 100%;
+            max-width: 300px;
+            height: 180px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
+        }
+        
+        .resource-info {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .resource-info h3 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .resource-info p {
+            line-height: 1.5;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 42, 108, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .notice {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #1a2a6c;
+        }
+        
+        .notice h3 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
         .footer {
-            font-size: 12px;
-            color: #888;
-            margin-top: 40px;
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .footer a {
+            color: #1a2a6c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            position: relative;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #ddd;
+            z-index: 1;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1a2a6c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .step-text {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #555;
+        }
+        
+        @media (max-width: 380px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-item {
+                font-size: 0.8rem;
+                padding: 6px 8px;
+            }
+            
+            .resource-image {
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <p class="notice">请在手机端扫描二维码或点击链接进行操作。</p>
+    <div class="container">
+        <header>
+            <h1>Quark</h1>
+            <p class="subtitle">移动端资源获取</p>
+            
+            <div class="nav-menu">
+                <div class="nav-item active">网盘</div>
+                <div class="nav-item">扫描王</div>
+                <div class="nav-item">学习</div>
+                <div class="nav-item">日报</div>
+                <div class="nav-item">文档</div>
+                <div class="nav-item">热搜</div>
+            </div>
+        </header>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">选择资源</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">点击下载</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">获取资源</div>
+            </div>
+        </div>
+        
+        <div class="resource-section">
+            <div class="resource-image">
+                资源预览
+            </div>
+            
+            <div class="resource-info">
+                <h3>精选资源包</h3>
+                <p>包含各类实用工具、学习资料和模板文件，定期更新，满足您的多种需求。</p>
+            </div>
+            
+            <button class="download-btn" onclick="window.open('https://pan.quark.cn/s/1a580f6bc763', '_blank')">
+                立即获取资源
+            </button>
+        </div>
+        
+        <div class="notice">
+            <h3>温馨提示</h3>
+            <p>此资源需要通过夸克网盘下载，点击上方按钮将跳转到资源页面，您可以在夸克应用中直接查看或下载。</p>
+        </div>
+        
+        <div class="footer">
+            <p>此链接转化工具由 <a href="https://space.bilibili.com/396153652?spm_id_from=333.1387.follow.user_card.click" target="_blank">奇犽科技分享</a> 开发</p>
+            <p>详情可在b站搜索奇犽科技分享</p>
+        </div>
+    </div>
 
-    <div id="qrcode"></div>
-
-    <p class="footer">此链接转化工具由奇犽科技分享开发 详情可在b站搜索奇犽科技分享</p>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        new QRCode(document.getElementById("qrcode"), "https://pan.quark.cn/s/1a580f6bc763");
+        // 导航菜单点击效果
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // 检测是否为移动设备，如果不是则提示
+        if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            const notice = document.createElement('div');
+            notice.style.cssText = `
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                background: rgba(178, 31, 31, 0.9);
+                color: white;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 0.9rem;
+                z-index: 1000;
+            `;
+            notice.innerHTML = '此页面专为移动端设计，建议在手机浏览器中打开以获得最佳体验';
+            document.body.appendChild(notice);
+            
+            setTimeout(() => {
+                notice.style.display = 'none';
+            }, 5000);
+        }
     </script>
 </body>
 </html>
