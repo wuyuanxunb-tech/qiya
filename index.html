@@ -11,7 +11,7 @@
             padding: 50px;
             background-color: #f9f9f9;
         }
-        .qr-container {
+        #qrcode {
             margin: 20px auto;
         }
         .notice {
@@ -28,12 +28,15 @@
 </head>
 <body>
     <h1>欢迎使用奇犽科技分享链接转化工具</h1>
-    <p class="notice">请使用手机端打开此页面以获取最佳体验。</p>
+    <p class="notice">请使用手机扫描二维码或在手机端打开此页面以获取最佳体验。</p>
 
-    <div class="qr-container">
-        <img src="https://pan.quark.cn/s/1a580f6bc763" alt="扫描二维码使用工具" width="200">
-    </div>
+    <div id="qrcode"></div>
 
     <p class="footer">此链接转化工具由奇犽科技分享开发 详情可在b站搜索奇犽科技分享</p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        new QRCode(document.getElementById("qrcode"), "https://pan.quark.cn/s/1a580f6bc763");
+    </script>
 </body>
 </html>
